@@ -157,7 +157,7 @@ uint32_t dd_make_texture_from_file(char* file_name)
     return texture;
 }
 
-uint32_t dd_make_texture_from_memory(char* file_name, GLenum channels, int width, int height, uint8_t* data)
+uint32_t dd_make_texture_from_memory(GLenum channels, int width, int height, uint8_t* data)
 {
     uint32_t texture; glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);

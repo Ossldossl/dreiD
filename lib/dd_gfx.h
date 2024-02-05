@@ -41,4 +41,4 @@ uint32_t dd_set_vertex_attribs(dd_shader_vertex_attrib* attribs, uint16_t count)
 uint32_t dd_make_ebo(uint32_t* indices, uint32_t size, bool is_dynamic);
 #define dd_set_uniform(type_suffix, shader_program, name, ...) {int32_t loc = glGetUniformLocation(shader_program, name); glUniform##type_suffix(loc, __VA_ARGS__);}
 uint32_t dd_make_texture_from_file(char* file_name);
-uint32_t dd_make_texture_from_memory(char* file_name, GLenum channels, int width, int height, uint8_t* data);
+uint32_t dd_make_texture_from_memory(GLenum channels, int width, int height, uint8_t* data);
