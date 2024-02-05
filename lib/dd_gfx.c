@@ -156,3 +156,16 @@ uint32_t dd_make_texture_from_file(char* file_name)
     glGenerateMipmap(GL_TEXTURE_2D);
     return texture;
 }
+
+uint32_t dd_make_texture_from_memory(char* file_name, GLenum channels, int width, int height, uint8_t* data)
+{
+    uint32_t texture; glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexImage2D(GL_TEXTURE_2D, 0, channels, width, height, 0, channels, GL_UNSIGNED_BYTE, data);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    return texture;
+}
